@@ -1,13 +1,45 @@
-# Simple logic for prioritizing ingredients by expiration days
-def suggest_recipes(inventory):
-    # Sort inventory by days remaining
-    sorted_items = sorted(inventory.items(), key=lambda x: x[1])
-    
-    print("Items to use ASAP:")
-    for item, days in sorted_items:
-        if days <= 2:
-            print(f"⚠️ {item}: {days} days left!")
+summary Summary Wildfire Sentinel is an AI-powered prediction tool designed to estimate the risk of wildfire outbreaks in specific regions. By analyzing historical weather patterns, soil moisture levels, and satellite vegetation data, the system provides a high-level "Risk Score" to help local authorities prioritize surveillance.
+Background
+Wildfires are becoming more frequent and intense due to climate change, causing massive ecological and economic damage.
 
-# Example inventory: {item_name: days_until_expiry}
-my_fridge = {'Milk': 1, 'Spinach': 2, 'Carrots': 10, 'Eggs': 5}
-suggest_recipes(my_fridge) 
+Problem 1: Firefighting resources are often spread too thin because they react to fires rather than predicting them.
+
+Problem 2: Remote areas are difficult to monitor manually 24/7.
+
+Motivation: My motivation is to use machine learning to protect biodiversity and human settlements in high-risk zones.
+To give you a fresh perspective, here is a complete sample project for the Building AI course using the official template.
+
+This example focuses on a Wildfire Prediction System, a common and impactful use case for AI. You can use this as a reference for how to fill out each section.
+
+Wildfire Sentinel
+Final project for the Building AI course
+
+Summary
+Wildfire Sentinel is an AI-powered prediction tool designed to estimate the risk of wildfire outbreaks in specific regions. By analyzing historical weather patterns, soil moisture levels, and satellite vegetation data, the system provides a high-level "Risk Score" to help local authorities prioritize surveillance.
+
+Background
+Wildfires are becoming more frequent and intense due to climate change, causing massive ecological and economic damage.
+
+Problem 1: Firefighting resources are often spread too thin because they react to fires rather than predicting them.
+
+Problem 2: Remote areas are difficult to monitor manually 24/7.
+
+Motivation: My motivation is to use machine learning to protect biodiversity and human settlements in high-risk zones.
+
+How is it used?
+The solution is intended for use by environmental agencies and emergency services. It operates as a dashboard that refreshes every 24 hours with new meteorological data.
+
+Environment: Rural and forested regions.
+
+Users: Fire marshals and emergency planners who need to decide where to station water bombers or ground crews before a fire starts.
+# A simple mock-up of a risk calculation based on temperature and wind
+def calculate_risk(temp, humidity, wind_speed):
+    # Simplified logic: higher temp and wind + lower humidity = higher risk
+    risk_score = (temp * 0.5) + (wind_speed * 0.3) - (humidity * 0.2)
+    
+    if risk_score > 25:
+        return "HIGH RISK"
+    return "LOW/MODERATE RISK"
+
+# Example: 35°C, 10% humidity, 20km/h wind
+print(f"Current conditions: {calculate_risk(35, 10, 20)}")
