@@ -1,0 +1,13 @@
+# Simple logic for prioritizing ingredients by expiration days
+def suggest_recipes(inventory):
+    # Sort inventory by days remaining
+    sorted_items = sorted(inventory.items(), key=lambda x: x[1])
+    
+    print("Items to use ASAP:")
+    for item, days in sorted_items:
+        if days <= 2:
+            print(f"⚠️ {item}: {days} days left!")
+
+# Example inventory: {item_name: days_until_expiry}
+my_fridge = {'Milk': 1, 'Spinach': 2, 'Carrots': 10, 'Eggs': 5}
+suggest_recipes(my_fridge) 
